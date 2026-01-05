@@ -15,7 +15,7 @@ export default function Home() {
         return;
       }
       else {
-        router.push('/profile');
+        router.push('/events');
       }
   }, [router]);
 

@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Uporabniški vmesnik sistema za obveščanje
 
-## Getting Started
+Ta projekt predstavlja uporabniški vmesnik sistema za obveščanje, zasnovan v ogrodju Next.js z uporabo TypeScripta in Reacta (App Router).
 
-First, run the development server:
+## Lokalno razvojno okolje
+### 1. Zahteve
+- Node.js (različica 18 ali novejša)
+- npm (ali yarn, pnpm)
 
+### 2. Kloniranje repozitorija
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/RSO-14/so-frontend.git
+cd so-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Zagon razvojnega strežnika
+```bash
+npm run dev
+```
+Aplikacija je nato dostopna na: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Urejanje strani
+Privzeta začetna datoteka aplikacije se nahaja v:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/page.tsx
+```
 
-## Learn More
+Aplikacija podpira samodejno osveževanje pri spremembah (Hot Reload).
 
-To learn more about Next.js, take a look at the following resources:
+## Struktura aplikacije
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Frontend deluje kot odjemalec za mikrostoritve zalednega sistema (`users`, `companies-filter`, `companies-sync`) ter vključuje povezavo na GraphQL, REST in SSE vmesnike.
+Frontend aplikacija je sestavljena iz naslednjih strani, ki pokrivajo osnovne funkcionalnosti sistema:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/login` – Prijava uporabnika (GraphQL `login`).
+- `/register` – Registracija novega uporabnika (GraphQL `register`).
+- `/events` – Prikaz opozoril (GET iz `companies-filter`).
+- `/events/create` – Oddaja dogodkov za organizacije (POST v `companies-sync`).
+- `/profile` – Podatki o uporabniku.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Strani uporabljajo JWT žeton, ki se shrani v `localStorage` in se pošilja v `Authorization` glavi.

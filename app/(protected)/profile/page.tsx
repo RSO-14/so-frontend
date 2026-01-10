@@ -30,7 +30,7 @@ export default function ProfilePage() {
       }
     `;
 
-    fetch('http://34.77.25.197/users/graphql', {
+    fetch('https://34.77.25.197/users/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

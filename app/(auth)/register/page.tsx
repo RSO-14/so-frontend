@@ -48,7 +48,7 @@ export default function RegisterPage() {
         },
       };
 
-      const res = await fetch('http://users.localhost/graphql', {
+      const res = await fetch('http://34.77.25.197/users/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, variables }),
@@ -162,8 +162,8 @@ export default function RegisterPage() {
                 onChange={(e) => setRole(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors bg-white"
               >
-                <option value="user">User</option>
                 <option value="public">Public Access</option>
+                <option value="user">User</option>
               </select>
             </div>
 

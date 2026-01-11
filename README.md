@@ -30,7 +30,7 @@ Aplikacija podpira samodejno osveževanje pri spremembah (Hot Reload).
 
 ## Struktura aplikacije
 
-Frontend deluje kot odjemalec za mikrostoritve zalednega sistema (`users`, `companies-filter`, `companies-sync`) ter vključuje povezavo na GraphQL, REST in SSE vmesnike.
+Frontend deluje kot odjemalec za mikrostoritve zalednega sistema (`users`, `companies-filter`, `companies-sync`) ter vključuje povezavo na GraphQL in REST vmesnike.
 Frontend aplikacija je sestavljena iz naslednjih strani, ki pokrivajo osnovne funkcionalnosti sistema:
 
 - `/login` – Prijava uporabnika (GraphQL `login`).

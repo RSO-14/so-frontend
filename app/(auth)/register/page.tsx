@@ -48,7 +48,7 @@ export default function RegisterPage() {
         },
       };
 
-      const res = await fetch('http://34.77.25.197/users/graphql', {
+      const res = await fetch('https://34.77.25.197/users/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, variables }),

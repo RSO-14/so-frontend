@@ -40,7 +40,7 @@ export default function EventsPage() {
             }
         `;
 
-        fetch('http://34.77.25.197/users/graphql', {
+        fetch('https://34.77.25.197/users/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default function EventsPage() {
             .then((res) => res.ok ? res.json() : Promise.reject())
             .then(({ data }) => {
                 setUser(data?.me);
-                return fetch(`http://34.77.25.197/companies-filter/events/${data?.me?.id}`, {
+                return fetch(`https://34.77.25.197/companies-filter/events/${data?.me?.id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

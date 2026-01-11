@@ -34,7 +34,7 @@ export default function CreateEventPage() {
         }
 
         const query = `query Me { me { id } }`;
-        fetch('http://34.77.25.197/users/graphql', {
+        fetch('https://34.77.25.197/users/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export default function CreateEventPage() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://34.77.25.197/companies-sync/events', {
+            const response = await fetch('https://34.77.25.197/companies-sync/events', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
